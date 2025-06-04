@@ -1,0 +1,35 @@
+{
+  "name": "api-nodejs-with-solid",
+  "version": "1.0.0",
+  "description": "GymPass style app.",
+  "main": "index.js",
+  "scripts": {
+    "start:dev": "tsx watch src/server.ts",
+    "start": "node build/server.js",
+    "build": "tsup src --out-dir build"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/CleversonCSousa/api-nodejs-solid.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/CleversonCSousa/api-nodejs-solid/issues"
+  },
+  "homepage": "https://github.com/CleversonCSousa/api-nodejs-solid#readme",
+  "devDependencies": {
+    "@types/node": "22.15.29",
+    "eslint": "8.57.1",
+    "tsup": "8.5.0",
+    "tsx": "4.19.4",
+    "typescript": "5.8.3",
+    "typescript-eslint": "8.33.0"
+  },
+  "dependencies": {
+    "dotenv": "16.5.0",
+    "fastify": "^5.3.3",
+    "zod": "3.25.49"
+  }
+}
