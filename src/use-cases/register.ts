@@ -10,7 +10,7 @@ interface RegisterUseCaseRequest {
 
 export async function registerUseCase({
     name, email, password
-} : RegisterUseCaseRequest) {
+}: RegisterUseCaseRequest) {
 
     const userWithSameEmail = await prismaClient.user.findUnique({
         where: {

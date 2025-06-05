@@ -17,6 +17,7 @@ export async function register(request: FastifyRequest, reply: FastifyReply) {
             email,
             password
         });
+        
     } catch(err) {
         return reply.status(409).send();
     }
