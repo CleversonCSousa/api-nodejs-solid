@@ -10,7 +10,6 @@ export async function register(request: FastifyRequest, reply: FastifyReply) {
     });
 
     const { name, email, password } = registerBodySchema.parse(request.body);
-
         
     try {
         await registerUseCase({
