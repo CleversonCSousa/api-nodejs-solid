@@ -8,7 +8,8 @@
     "start": "node build/server.js",
     "build": "tsup src --out-dir build",
     "test": "vitest run",
-    "test:watch": "vitest"
+    "test:watch": "vitest",
+    "test:coverage": "vitest --coverage"
   },
   "repository": {
     "type": "git",
@@ -23,6 +24,7 @@
   "homepage": "https://github.com/CleversonCSousa/api-nodejs-solid#readme",
   "devDependencies": {
     "@types/node": "22.15.29",
+    "@vitest/coverage-v8": "3.2.2",
     "eslint": "8.57.1",
     "prisma": "6.9.0",
     "tsup": "8.5.0",
