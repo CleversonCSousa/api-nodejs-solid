@@ -15,20 +15,15 @@ export class InMemoryGymsRepository implements GymsRepository {
         return gym;
     }
 
-    async create(data: Prisma.GymCreateInput) {
+    async create(data: Gym) {
 
-        /* 
-           Aqui a latitude e longitude estão com um valor fixo,
-           depois trocar para gerar um valor para longitude e
-           latitude que a partir do data.
-        */
         const gym : Gym = {
             id: data.id ?? randomUUID(),
             title: data.title,
             description: data.description ?? null,
             phone: data.phone ?? null,
-            latitude: new Decimal(0),
-            longitude: new Decimal(0),
+            latitude: data.latitude,
+            longitude: data.longitude,
         };
         this.items.push(gym);
         return gym;

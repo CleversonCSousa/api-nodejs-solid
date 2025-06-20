@@ -2,6 +2,7 @@ import { expect, describe, it, beforeEach, vi, afterEach } from 'vitest';
 import { InMemoryCheckInsRepository } from '@/repositories/in-memory/in-memory-check-ins-repository';
 import { CheckInUseCase } from './check-in';
 import { InMemoryGymsRepository } from '@/repositories/in-memory/in-memory-gyms-repository';
+import { Decimal } from 'generated/prisma/runtime/library';
 
 let checkInsRepository : InMemoryCheckInsRepository;
 let gymsRepository: InMemoryGymsRepository;
@@ -13,19 +14,13 @@ describe('Check-in Use Case', () => {
         checkInsRepository = new InMemoryCheckInsRepository();
         gymsRepository = new InMemoryGymsRepository();
         sut = new CheckInUseCase(checkInsRepository, gymsRepository);
-
-         /*
-            Mesmo passando os valores da latitude e longitude,
-            no InMemoryGymRepository está sendo gerando o valor
-            fixo 0 tanto para a latitude como longitude
-        */
         gymsRepository.create({
             id: 'gym-01',
             title: 'TypeScrupt Gym',
             description: 'Treine seu cérebro com TypeScript',
             phone: '(13) 99946-4296',
-            latitude: 0,
-            longitude: 0
+            latitude: new Decimal(0),
+            longitude: new Decimal(0)
         });
 
         vi.useFakeTimers();
@@ -84,5 +79,24 @@ describe('Check-in Use Case', () => {
         });
 
         expect(checkIn.id).toEqual(expect.any(String));
+    });
+
+    it('should not be able to check in on distant gym', async () => {
+        gymsRepository.create({
+            id: 'gym-02',
+            title: 'PHP Gym',
+            description: 'Treine seu cérebro com PHP',
+            phone: '',
+            latitude: new Decimal(23.5446249),
+            longitude: new Decimal(-46.7882705)
+        });
+
+        vi.setSystemTime(new Date(2022, 0, 21, 8, 0, 0));
+        await expect(() => sut.execute({
+            gymId: 'gym-02',
+            userId: 'user-01',
+            userLatitude: -23.544256,
+            userLongitude: -46.767077
+        })).rejects.toBeInstanceOf(Error);
     });
 });
