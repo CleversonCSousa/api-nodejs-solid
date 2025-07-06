@@ -12,12 +12,12 @@ A ideia do projeto é desenvolver um aplicativo que permita realizar check-in, o
 - [x] Deve ser possível se autenticar;
 - [x] Deve ser possível obter o perfil de um usuário logado;
 - [ ] Deve ser possível obter o número de check-ins realizados pelo usuário logado;
-- [ ] Deve ser possível o usuário obter seu histórico de check-ins;
+- [x] Deve ser possível o usuário obter seu histórico de check-ins;
 - [ ] Deve ser possível o usuário buscar academias próximas;
 - [ ] Deve ser possível o usuário buscar academias pelo nome;
 - [x] Deve ser possível o usuário realizar check-in em uma academia;
-- [] Deve ser possível validar o check-in de um usuŕio;
-- [ ] Deve ser possível cadastrar uma academia;
+- [ ] Deve ser possível validar o check-in de um usuŕio;
+- [x] Deve ser possível cadastrar uma academia;
 
 ## RNs (Regras de negócio)
 
@@ -31,6 +31,6 @@ A ideia do projeto é desenvolver um aplicativo que permita realizar check-in, o
 ## RNFs (Requisitos não funcionais)
 
 - [x] A senha do usuário precisa estar criptografada;
-- [ ] Os dados da aplicação precisam estar persistidos em um banco PostgreSQL;
-- [ ] Todas listas de dados precisam estar paginadas com 20 itens por página;
+- [x] Os dados da aplicação precisam estar persistidos em um banco PostgreSQL;
+- [x] Todas listas de dados precisam estar paginadas com 20 itens por página;
 - [ ] O usuário deve ser identificado por um JWT (JSON Web Token);
