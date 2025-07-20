@@ -16,7 +16,7 @@ A ideia do projeto é desenvolver um aplicativo que permita realizar check-in, o
 - [x] Deve ser possível o usuário buscar academias próximas (até 10km);
 - [x] Deve ser possível o usuário buscar academias pelo nome;
 - [x] Deve ser possível o usuário realizar check-in em uma academia;
-- [ ] Deve ser possível validar o check-in de um usuŕio;
+- [x] Deve ser possível validar o check-in de um usuŕio;
 - [x] Deve ser possível cadastrar uma academia;
 
 ## RNs (Regras de negócio)
