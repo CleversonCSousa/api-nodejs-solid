@@ -7,11 +7,11 @@
     "start:dev": "tsx watch src/server.ts",
     "start": "node build/server.js",
     "build": "tsup src --out-dir build",
-    "test": "vitest run --project unit",
-    "test:e2e": "vitest run --project e2e",
-    "test:watch": "vitest --project unit",
-    "test:e2e:watch": "vitest --project e2e",
-    "test:coverage": "vitest --coverage",
+    "test": "vitest run --dir src/use-cases",
+    "test:watch": "vitest --dir src/use-cases",
+    "test:e2e": "vitest run --dir src/http --project e2e",
+    "test:e2e:watch": "vitest --dir src/http --project e2e",
+    "test:coverage": "vitest run --coverage",
     "test:ui": "vitest --ui"
   },
   "repository": {
@@ -27,9 +27,11 @@
   "homepage": "https://github.com/CleversonCSousa/api-nodejs-solid#readme",
   "devDependencies": {
     "@types/node": "22.15.29",
+    "@types/supertest": "6.0.3",
     "@vitest/coverage-v8": "3.2.2",
     "eslint": "8.57.1",
     "prisma": "6.9.0",
+    "supertest": "7.1.4",
     "tsup": "8.5.0",
     "tsx": "4.19.4",
     "typescript": "5.8.3",
