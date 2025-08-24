@@ -20,12 +20,16 @@ describe('Create Gym (e2e)', () => {
         const response = await request(app.server)
             .post('/gyms')
             .set('Authorization', `Bearer ${token}`)
-            .send()
+            .send({
+                title: 'TypeScript Gym',
+                description: 'Any thing',
+                phone: '2288888888',
+                latitude: -27.2092052,
+                longitude: -49.6401091
+            })
         ;
 
-        expect(response.statusCode).toEqual(200);
-        expect(response.body.user).toEqual(expect.objectContaining({
-            email: 'joaopedro@gmail.com'
-        }));
+        expect(response.statusCode).toEqual(201);
+        
     });
 });
