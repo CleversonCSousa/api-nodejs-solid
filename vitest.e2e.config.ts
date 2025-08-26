@@ -4,6 +4,6 @@ import tsconfigPaths from 'vite-tsconfig-paths';
 export default defineConfig({
   plugins: [tsconfigPaths()],
   test: {
-    dir: 'src/use-cases',
+    environment: './prisma/vitest-environment/prisma-test-environment.ts',
   },
 });
