@@ -18,17 +18,15 @@ describe('Profile (e2e)', () => {
         const { token } = await createAndAuthenticateUser(app);
 
         const profileResponse = await request(app.server)
-            .post('/gyms')
-            .set('Authorization', `Bearer ${token}`)
-            .send({
-                title: 'TypeScript Gym',
-                description: 'The most complete course of TypeScript',
-                phone: '2288888888',
-                latitude: -27.2092052,
-                longitude: -49.6401091
-            })
-        ;
+        .get('/me')
+        .set('Authorization', `Bearer ${token}`)
+        .send();
 
-        expect(profileResponse.statusCode).toEqual(201);
-    });
+        expect(profileResponse.statusCode).toEqual(200);
+        expect(profileResponse.body.user).toEqual(
+        expect.objectContaining({
+            email: 'joaopedro@gmail.com',
+        }),
+        );
+        });
 });
