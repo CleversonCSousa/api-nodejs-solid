@@ -8,9 +8,9 @@
     "start": "node build/server.js",
     "build": "tsup src --out-dir build",
     "test": "vitest run --dir src/use-cases",
-    "test:watch": "vitest --dir src/use-cases",
-    "test:e2e": "vitest run --dir src/http --project e2e",
-    "test:e2e:watch": "vitest --dir src/http --project e2e",
+    "test:unit:watch": "vitest --dir src/use-cases",
+    "test:e2e": "vitest run --dir src/http --config vitest.e2e.config.ts",
+    "test:e2e:watch": "vitest --dir src/http --config vitest.e2e.config.ts",
     "test:coverage": "vitest run --coverage",
     "test:ui": "vitest --ui"
   },
