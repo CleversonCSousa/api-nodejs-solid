@@ -2,7 +2,7 @@ import { FastifyInstance } from 'fastify';
 import { register } from './register';
 import { authenticate } from './authenticate';
 import { profile } from './profile';
-import { verfiyJWT } from '../../middlewares/verify-jwt';
+import { verifyJWT } from '../../middlewares/verify-jwt';
 import { refresh } from './refresh';
 
 export async function usersRoutes(app: FastifyInstance) {
@@ -12,6 +12,6 @@ export async function usersRoutes(app: FastifyInstance) {
     app.patch('/token/refresh', refresh);
     
     // Authenticated route
-    app.get('/me', { onRequest: [ verfiyJWT ]} , profile);
+    app.get('/me', { onRequest: [ verifyJWT ]} , profile);
 }
 
